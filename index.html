@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello</title>
+<style>
+  body {
+    font-family: system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: #f5f5f5;
+  }
+  .card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  #greeting {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>What's your name?</h1>
+    <form id="nameForm">
+      <input type="text" id="nameInput" placeholder="Enter your name" required>
+      <button type="submit">Say Hello</button>
+    </form>
+    <p id="greeting"></p>
+  </div>
+
+  <script>
+    document.getElementById('nameForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('nameInput').value.trim();
+      document.getElementById('greeting').textContent = name ? `Hello, ${name}!` : '';
+    });
+  </script>
+</body>
+</html>
